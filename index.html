@@ -6,7 +6,7 @@
 
 <!-- Favicon & Icon Settings -->
 <link rel="icon" type="image/jpeg" href="https://cdn.postimage.me/2026/09/17/jarvis.jpg">
-<link rel="apple-touch-icon" href="https://i.pinimg.com/736x/ac/66/da/ac66dad71fd575dfecb76d281222d47a.jpg">
+<link rel="apple-touch-icon" href="https://cdn.postimage.me/2026/09/17/jarvis.jpg">
 <link rel="canonical" href="https://findjarvis.github.io/">
 
 <!-- JSON-LD Structured Data -->
@@ -16,7 +16,7 @@
     "@type" : "WebSite",
     "name" : "FindJarvis",
     "url" : "https://findjarvis.github.io/",
-    "logo" : "https://i.pinimg.com/736x/ac/66/da/ac66dad71fd575dfecb76d281222d47a.jpg"
+    "logo" : "https://cdn.postimage.me/2026/09/17/jarvis.jpg"
   }
 </script>
 
@@ -24,10 +24,10 @@
 <meta property="og:site_name" content="FindJarvis" />
 <meta name="title" content="FindJarvis-Hire Right Persons">
 <meta property="og:url" content="https://findjarvis.github.io/">
-<meta property="og:image" content="https://i.pinimg.com/736x/ac/66/da/ac66dad71fd575dfecb76d281222d47a.jpg">
+<meta property="og:image" content="https://cdn.postimage.me/2026/09/17/jarvis.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FindJarvis-Hire Right Persons">
-<meta name="twitter:image" content="https://i.pinimg.com/736x/ac/66/da/ac66dad71fd575dfecb76d281222d47a.jpg">
+<meta name="twitter:image" content="https://cdn.postimage.me/2026/09/17/jarvis.jpg">
 
 <meta name="description" content="Professional photo & video editing, photography, videography, and technical support services by Muhammed Shan MK. Serving Kerala, Kannur, Taliparamba, Nelliparamba, and surrounding areas for busy professionals and businesses.">
 <meta name="keywords" content="findjarvis, FINDJARVIS, findjarwis, find jarwis, find jarvis, jarvisfind, jarvis finder, find professionals, hire professionals, hire jarvis, find services, hire services, professional services, service marketplace, Kerala services, Kerala professionals, Kannur services, Kannur professionals, Kannur hire, Kannur find, editors, video editors, photo editors, professional editors, editing services, video editing, photo editing, technical support, technical services, IT support, computer support, computer services, tech professionals, photographers, photography, professional photography, photography services, videographers, videography, video production, video services, photo video graphy, photo video services, graphic designers, graphic design, freelance editors, freelance photographers, freelance videographers, freelancers Kerala, freelancers Kannur, hire freelancers, find freelancers, local professionals, local services Kerala, local services Kannur, Kerala freelance services, Kannur freelance services, Jarvis Kerala, jarvis kerala, Kerala Jarvis, Kerala find Jarvis, find Jarvis Kerala, Jarvis Find, FindJarvis Kerala, FindJarvis Kannur, Jarvis Kannur, Jarvis Shan, shanney, Shanney.com, shanney com, shanneydotcom, shanney website, Shanney services, Muhammed Shan MK, muhammed shan mk, Shan MK, shanney Kerala, Shanney Kannur, Nellipramaba, nelliprmaba, findjarvis website, findjarvis services, findjarvis Kerala, findjarvis Kannur, find and hire, find and hire professionals, hire and find services, hire local professionals, find local professionals, technical support Kerala, technical support Kannur, photography Kerala, videography Kerala, editing Kerala, editing Kannur, professional hire Kerala, professional hire Kannur, Jarvis services, Jarvis professionals, Jarvis hire, FindJarvis hire, FindJarvis find">
@@ -115,12 +115,26 @@
     align-items: center;
   }
 
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  .header-logo-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid var(--brass);
+  }
+
   .logo {
     font-family: 'Fraunces', serif;
     font-size: 1.2rem;
     font-weight: 700;
     letter-spacing: -0.02em;
-    cursor: pointer;
   }
 
   .logo span {
@@ -1841,7 +1855,10 @@
 
 <header>
   <div class="wrap">
-    <div class="logo" onclick="showPage('home-page')">Find<span>Jarvis</span></div>
+    <div class="logo-container" onclick="showPage('home-page')">
+      <img src="https://cdn.postimage.me/2026/09/17/jarvis.jpg" alt="FindJarvis Logo" class="header-logo-img">
+      <div class="logo">Find<span>Jarvis</span></div>
+    </div>
     <nav>
       <a href="#" onclick="showPage('home-page'); return false;">Services</a>
       <a href="#" onclick="showPage('saved-page'); return false;" class="saved-nav-btn">
