@@ -17,21 +17,21 @@
 </script>
 
 <!-- OpenGraph fallback signal for Google -->
-<meta property="og:site_name" content="FindShny" />
+<meta property="og:site_name" content="Findshany- Hire Right Specialists" />
 
 <meta name="description" content="FindShny connects you directly with vetted Kerala specialists including video editors, photo editors, photographers, videographers, and tech support experts via WhatsApp.">
 <meta name="keywords" content="FindShny, FindShny services, Hire video editor Kerala, Hire photographer Kerala, Freelance editor India, Video editing services, Technical support specialist, Photo editing expert, Media production Kerala, Hire tech support, Professional videographer, Content creation services, Muhammed Shan MK">
-<meta name="author" content="Muhammed Shan MK">
+<meta name="author" content="FindShny">
 <meta name="robots" content="index, follow">
 
-<meta property="og:title" content="FindShny - Hire Verified Local Specialists">
+<meta property="og:title" content="Findshany- Hire Right Specialists">
 <meta property="og:description" content="Hire expert photo/video editors, photographers, videographers, and tech support. Direct solutions for busy individuals and teams via FindShny.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://findshny.github.io/">
 <meta property="og:image" content="https://cdn.postimage.me/2026/09/17/jarvis.jpg">
 <meta property="og:locale" content="en_IN">
 
-<title>FindShny - Hire Verified Local Specialists</title>
+<title>Findshany- Hire Right Specialists</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;0,700;1,700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -61,6 +61,7 @@
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
   body {
@@ -1566,7 +1567,27 @@
       renderSavedProfiles();
     }
     
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    smoothScrollTo(0);
+  }
+
+  /* Cross-device smooth scroll implementation */
+  function smoothScrollTo(targetY) {
+    const startY = window.pageYOffset || document.documentElement.scrollTop;
+    const distance = targetY - startY;
+    const duration = 400;
+    let start = null;
+
+    function step(timestamp) {
+      if (!start) start = timestamp;
+      const progress = timestamp - start;
+      const rate = Math.min(progress / duration, 1);
+      const ease = rate < 0.5 ? 2 * rate * rate : -1 + (4 - 2 * rate) * rate;
+      window.scrollTo(0, startY + distance * ease);
+      if (progress < duration) {
+        window.requestAnimationFrame(step);
+      }
+    }
+    window.requestAnimationFrame(step);
   }
 
   function openModal(gridId, serviceType) {
@@ -2060,7 +2081,7 @@
     document.body.appendChild(scrollTopBtn);
 
     scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      smoothScrollTo(0);
     });
 
     window.addEventListener('scroll', () => {
@@ -2765,7 +2786,7 @@
     </div>
 
     <div class="pro-grid" id="photo-video-grid">
-      <div class="add-profile-card pro-card" onclick="openModal('photo-video-grid', 'Photography / Videography')">
+      <div class="add-profile-card pro-card" onclick="openModal('photo-video-grid', 'Photo/Videography')">
         <div class="add-profile-content">
           <div class="add-profile-icon">+</div>
           <span>Add Profile</span>
@@ -2781,7 +2802,7 @@
     <button class="back-btn" onclick="showPage('home-page')">← Back to Services</button>
     <div class="cat-heading">
       <h2>💻 Technical Support</h2>
-      <p>System configuration, software setup, and technical troubleshooting.</p>
+      <p>Get expert technical assistance and system repairs.</p>
     </div>
 
     <div class="filter-bar">
@@ -2801,98 +2822,96 @@
   </div>
 </div>
 
-<!-- Saved Profiles Sub-Page -->
+<!-- Saved Profiles Page -->
 <div id="saved-page" class="page">
   <div class="wrap">
     <button class="back-btn" onclick="showPage('home-page')">← Back to Services</button>
     <div class="cat-heading">
       <h2>❤️ Saved Profiles</h2>
-      <p>Quick access to your saved specialists.</p>
+      <p>Your saved favorites and shortlisted specialists.</p>
     </div>
-    <div class="pro-grid" id="saved-grid"></div>
+    <div class="pro-grid" id="saved-grid">
+      <!-- Dynamically rendered saved items -->
+    </div>
   </div>
 </div>
 
 <!-- Add Profile Modal -->
 <div class="modal-overlay" id="profileModal">
   <div class="modal">
-    <h2>Apply for Profile Listing</h2>
-    <div class="modal-subtitle">Submit your details to feature in our marketplace</div>
-
+    <h2>Add Specialist Profile</h2>
+    <div class="modal-subtitle">Submit your details to be listed on FindShny</div>
+    
     <div class="form-group">
-      <label for="profTier">Badge Tier Selection</label>
+      <label for="profTier">Badge Tier</label>
       <select id="profTier" onchange="updateModalPrice()">
-        <option value="silver">Silver Tier (Basic Visibility)</option>
-        <option value="gold">Gold Tier (Featured / Priority Listing)</option>
+        <option value="silver">Silver Tier</option>
+        <option value="gold">Gold Tier (Featured)</option>
       </select>
     </div>
 
     <div class="form-group">
       <label for="profName">Full Name *</label>
-      <input type="text" id="profName" placeholder="e.g. Rahul Sharma">
+      <input type="text" id="profName" placeholder="e.g. John Doe">
     </div>
 
     <div class="form-group">
-      <label for="profPlace">Location / District *</label>
-      <input type="text" id="profPlace" placeholder="e.g. Kannur, Kerala">
+      <label for="profPlace">Location *</label>
+      <input type="text" id="profPlace" placeholder="e.g. Kochi, Kerala">
     </div>
 
     <div class="form-group">
-      <label for="profRole">Primary Role *</label>
-      <input type="text" id="profRole" placeholder="e.g. Video & Photo Editor">
+      <label for="profRole">Role / Title *</label>
+      <input type="text" id="profRole" placeholder="e.g. Video Editor / Colorist">
     </div>
 
     <div class="form-group">
-      <label for="profApps">Tools & Applications</label>
-      <input type="text" id="profApps" placeholder="e.g. Premiere Pro, DaVinci, Photoshop">
+      <label for="profApps">Apps / Software / Equipment</label>
+      <input type="text" id="profApps" placeholder="e.g. Premiere Pro, DaVinci, Sony A7IV">
     </div>
 
     <div class="form-group">
-      <label for="profExp">Experience Level</label>
-      <input type="text" id="profExp" placeholder="e.g. 2 Years Experience">
+      <label for="profExp">Experience</label>
+      <input type="text" id="profExp" placeholder="e.g. 3 Years Experience">
     </div>
 
     <div class="form-group">
-      <label for="profPhone">WhatsApp Contact Number *</label>
+      <label for="profPhone">WhatsApp Phone Number *</label>
       <input type="tel" id="profPhone" placeholder="e.g. 919876543210">
     </div>
 
     <div class="form-group">
       <label for="profEmail">Email Address *</label>
-      <input type="email" id="profEmail" placeholder="e.g. name@example.com">
+      <input type="email" id="profEmail" placeholder="e.g. john@example.com">
     </div>
 
     <div class="tier-rates-box">
-      <div class="tier-rates-title">Listing Fee Plans</div>
+      <div class="tier-rates-title">Listing Rates & Tiers</div>
       <div class="tier-rate-item"><span>Silver Badge:</span> <strong>₹100+</strong></div>
-      <div class="tier-rate-item"><span>Gold Badge:</span> <strong>₹300+</strong></div>
+      <div class="tier-rate-item"><span>Gold Badge (Top Priority):</span> <strong>₹300+</strong></div>
     </div>
 
     <div class="price-tag" id="dynamicPriceTag">Listing Fee: ₹100+ (Silver Tier)</div>
 
     <div class="modal-actions">
-      <button class="btn-submit" onclick="submitProfileForApproval()">Submit via WhatsApp</button>
-      <button class="btn-cancel" onclick="closeModal()">Cancel</button>
+      <button type="button" class="btn-submit" onclick="submitProfileForApproval()">Submit Application</button>
+      <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
     </div>
 
     <div class="modal-nav-row">
-      <button class="btn-nav" onclick="goHomeFromModal()">Return to Home</button>
+      <button type="button" class="btn-nav" onclick="goHomeFromModal()">Return to Home</button>
     </div>
-
-    <a href="https://api.whatsapp.com/send?phone=919496806919&text=Hi,%20I%20have%20questions%20about%20listing%20my%20profile." target="_blank" class="wa-chat-footer-btn">
-      💬 Have Questions? Contact Admin
-    </a>
   </div>
 </div>
 
-<!-- Image View Modal -->
+<!-- Image Modal Overlay -->
 <div class="img-modal-overlay" id="imageModal" onclick="closeImageModal()">
-  <img id="modalImage" class="img-modal-content" src="" alt="Enlarged profile view">
+  <img id="modalImage" class="img-modal-content" src="" alt="Enlarged profile photo">
 </div>
 
 <footer>
   <div class="wrap">
-    <p>&copy; 2026 FindShny. All rights reserved. Created by Muhammed Shan MK.</p>
+    <p>© 2026 FindShny. All rights reserved.</p>
   </div>
 </footer>
 
